@@ -1,11 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        <div class="Data-Input">
+            <div>
+                <label for="Category">Category</label>
+            <select name="Category" id="Category">
+                <option></option>
+                <option value="Food">Food</option>
+                <option value="Transport">Transport</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Health">Health</option>
+                <option value="Bills">Bills</option>
+                <option value="Others">Others</option>
+            </select>
+            </div>
+            <div>
+                <label for="Amount">Amount</label>
+            <input type="number" name="Amount" id="Amount">
+            </div>
+            <div>
+                <label for="Date">Date</label>
+            <input type="date" name="Date" id="Date">
+            </div>
+            
+            <button type="submit" id="Add">Add</button>
+            <button type="submit" id="Update">Update</button>
+        </div>
+        <div class="Data-Display">
+            <h2>Expenses</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="Expense-Table-Body">
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total</td>
+                        <td id="Total-Amount">0</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
 </body>
+
 </html>

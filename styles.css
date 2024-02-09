@@ -1,6 +1,155 @@
-* body {
+body {
   font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+.Data-Input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add box shadow here */
+}
+
+#Category {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add box shadow here */
+}
+
+.Data-Input label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.Data-Input input[type="number"],
+.Data-Input input[type="date"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add box shadow here */
+}
+
+td button {
+  padding: 5px 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.Data-Input button {
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100px;
+}
+
+.Data-Display {
+  margin: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #4caf50;
+  color: white;
+}
+
+tfoot td {
+  font-weight: bold;
+}
+
+.edit-button {
+  border-radius: 8px;
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: white;
+  margin: 0 15px;
+}
+
+.delete-button {
+  border-radius: 8px;
+  padding: 5px 10px;
+  background-color: #f44336;
+  color: white;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .Data-Input {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .Data-Input input[type="number"],
+  .Data-Input input[type="date"] {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .Data-Display {
+    margin: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #4caf50;
+    color: white;
+  }
+
+  tfoot td {
+    font-weight: bold;
+  }
+
+  td button {
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 }
