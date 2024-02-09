@@ -18,18 +18,21 @@ body {
 h1 {
   font-size: 3rem;
   text-align: center;
-  color: #ff6200;
+  color: transparent;
   margin-bottom: 50px;
   font-weight: 800;
+  -webkit-background-clip: text;
+  background-image: url(./images/orangebg.jpg);
 }
 
 h2 {
   font-size: 2rem;
   text-align: center;
-  color: #ff6200;
+  color: transparent;
   margin-bottom: 20px;
   font-weight: 800;
-  
+  -webkit-background-clip: text;
+  background-image: url(./images/orangebg.jpg);
 }
 
 .Data-Input {
@@ -61,8 +64,7 @@ h2 {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add box shadow here */
-  color: rgba(0, 0, 0, 0); /* Make font color transparent */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
 td button {
