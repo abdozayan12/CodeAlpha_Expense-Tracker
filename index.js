@@ -28,4 +28,19 @@ add.addEventListener('click', () => {
         totalAmount.innerText = total;
         renderTable();
     }
+
+    const newRow = expenseTableBody.insertRow();
+    const categoryCell = newRow.insertCell(0);
+    const amountCell = newRow.insertCell(1);
+    const dateCell = newRow.insertCell(2);
+    const deleteCell = newRow.insertCell(3);
+    const deleteButton = document.createElement('button');
+    
+    deleteButton.innerText = 'Delete';
+    deleteButton.addEventListener('click', () => {
+        total -= parseInt(amountValue);
+        totalAmount.innerText = total;
+        expenses = expenses.filter((expense) => expense.date !== dateValue);
+        renderTable();
+    });
 });
