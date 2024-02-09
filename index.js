@@ -2,16 +2,6 @@ let expenses = [];
 let total = 0;
 let selectedExpenseIndex = -1;
 
-// Load expenses from local storage
-window.addEventListener('DOMContentLoaded', () => {
-  const storedExpenses = localStorage.getItem('expenses');
-  if (storedExpenses) {
-    expenses = JSON.parse(storedExpenses);
-    renderTable();
-    updateTotal();
-  }
-});
-
 const categories = document.getElementById('Category');
 const amount = document.getElementById('Amount');
 const date = document.getElementById('Date');
@@ -20,75 +10,9 @@ const update = document.getElementById('Update');
 const expenseTableBody = document.getElementById('Expense-Table-Body');
 const totalAmount = document.getElementById('Total-Amount');
 
-add.addEventListener('click', addExpense);
-update.addEventListener('click', () => {
-  const selectedRow = expenseTableBody.querySelector('.selected');
-  if (selectedRow) {
-    updateExpense();
-    selectedRow.classList.remove('selected');
-  } else {
-    alert('Please select a row to edit');
-  }
-});
-
-function addExpense() {
-  const category = categories.value;
-  const amountValue = amount.value;
-  const dateValue = date.value;
-
-  if (!category) {
-    alert('Please select a category');
-    return;
-  }
-  if (amountValue <= 0) {
-    alert('Amount must be greater than 0');
-    return;
-  }
-  if (!dateValue) {
-    alert('Please enter a date');
-    return;
-  }
-
-  if (category && amountValue >= 0 && dateValue) {
-    expenses.push({ category, amount: amountValue, date: dateValue });
-    renderTable();
-    updateTotal();
-
-    localStorage.setItem('expenses', JSON.stringify(expenses));
-    resetInputFields();
-  }
-}
-
-function updateExpense() {
-  const category = categories.value;
-  const amountValue = amount.value;
-  const dateValue = date.value;
-
-  if (!category) {
-    alert('Please select a category');
-    return;
-  }
-  if (amountValue <= 0) {
-    alert('Amount must be greater than 0');
-    return;
-  }
-  if (!dateValue) {
-    alert('Please enter a date');
-    return;
-  }
-
-  if (category && amountValue >= 0 && dateValue) {
-    if (selectedExpenseIndex !== -1) {
-      expenses[selectedExpenseIndex] = { category, amount: amountValue, date: dateValue };
-      renderTable();
-      updateTotal();
-
-      localStorage.setItem('expenses', JSON.stringify(expenses));
-      resetInputFields();
-      update.style.display = 'none';
-      add.style.display = 'inline-block';
-    }
-  }
+function updateTotal() {
+  total = expenses.reduce((acc, expense) => acc + parseInt(expense.amount, 10), 0);
+  totalAmount.innerText = total;
 }
 
 function renderTable() {
@@ -136,14 +60,90 @@ function renderTable() {
   });
 }
 
-function updateTotal() {
-  total = expenses.reduce((acc, expense) => acc + parseInt(expense.amount), 0);
-  totalAmount.innerText = total;
-}
-
 function resetInputFields() {
   categories.value = '';
   amount.value = '';
   date.value = '';
   selectedExpenseIndex = -1;
 }
+
+function addExpense() {
+  const category = categories.value;
+  const amountValue = amount.value;
+  const dateValue = date.value;
+
+  if (!category) {
+    console.log('Please select a category');
+    return;
+  }
+  if (amountValue <= 0) {
+    console.log('Amount must be greater than 0');
+    return;
+  }
+  if (!dateValue) {
+    console.log('Please enter a date');
+    return;
+  }
+
+  if (category && amountValue >= 0 && dateValue) {
+    expenses.push({ category, amount: amountValue, date: dateValue });
+    renderTable();
+    updateTotal();
+
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+    resetInputFields();
+  }
+}
+
+function updateExpense() {
+  const category = categories.value;
+  const amountValue = amount.value;
+  const dateValue = date.value;
+
+  if (!category) {
+    console.log('Please select a category');
+    return;
+  }
+  if (amountValue <= 0) {
+    console.log('Amount must be greater than 0');
+    return;
+  }
+  if (!dateValue) {
+    console.log('Please enter a date');
+    return;
+  }
+
+  if (category && amountValue >= 0 && dateValue) {
+    if (selectedExpenseIndex !== -1) {
+      expenses[selectedExpenseIndex] = { category, amount: amountValue, date: dateValue };
+      renderTable();
+      updateTotal();
+
+      localStorage.setItem('expenses', JSON.stringify(expenses));
+      resetInputFields();
+      update.style.display = 'none';
+      add.style.display = 'inline-block';
+    }
+  }
+}
+
+// Load expenses from local storage
+window.addEventListener('DOMContentLoaded', () => {
+  const storedExpenses = localStorage.getItem('expenses');
+  if (storedExpenses) {
+    expenses = JSON.parse(storedExpenses);
+    renderTable();
+    updateTotal();
+  }
+});
+
+add.addEventListener('click', addExpense);
+update.addEventListener('click', () => {
+  const selectedRow = expenseTableBody.querySelector('.selected');
+  if (selectedRow) {
+    updateExpense();
+    selectedRow.classList.remove('selected');
+  } else {
+    console.log('Please select a row to edit');
+  }
+});
