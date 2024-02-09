@@ -64,7 +64,7 @@ h2 {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 td button {
@@ -72,7 +72,6 @@ td button {
   border-radius: 8px;
   color: white;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -120,7 +119,6 @@ tfoot td {
 }
 
 .delete-button {
-  
   padding: 5px 10px;
   background-color: #f44336;
 }
@@ -129,7 +127,7 @@ tfoot td {
 @media screen and (max-width: 768px) {
   .Data-Input {
     flex-direction: column;
-    gap: 0;
+    gap: 10px;
   }
 
   .Data-Input input[type="number"],
